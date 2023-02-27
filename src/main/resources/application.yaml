@@ -1,0 +1,9 @@
+spring:
+  #Enabling and configuring multipart files (Multipart HTTP Request)
+  servlet.multipart:
+    enabled: true
+    max-file-size: 200MB
+    max-request-size: 215MB
+  #URI for connection to DB
+  data.mongodb:
+    uri: mongodb://localhost:27017/persons
