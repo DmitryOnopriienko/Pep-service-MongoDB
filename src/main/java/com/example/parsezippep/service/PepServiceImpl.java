@@ -1,10 +1,15 @@
 package com.example.parsezippep.service;
 
+import com.example.parsezippep.dto.PepRequestDto;
+import com.example.parsezippep.dto.PepResponseDto;
+import com.example.parsezippep.entity.Pep;
+import com.example.parsezippep.repository.PepRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,11 +23,11 @@ import java.util.zip.ZipInputStream;
 @Service
 public class PepServiceImpl implements PepService {
 
-  private final MongoTemplate mongoTemplate;
+  private final PepRepository pepRepository;
 
   @Autowired
-  public PepServiceImpl(MongoTemplate mongoTemplate) {
-    this.mongoTemplate = mongoTemplate;
+  public PepServiceImpl(PepRepository pepRepository) {
+    this.pepRepository = pepRepository;
   }
 
   @Override
@@ -48,7 +53,7 @@ public class PepServiceImpl implements PepService {
           documents.add(document);
         }
 
-        mongoTemplate.insert(documents, "person");
+        pepRepository.insert(documents);
 
         zipEntry = zipInputStream.getNextEntry();
       }
@@ -57,5 +62,15 @@ public class PepServiceImpl implements PepService {
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
+  }
+
+  @Override
+  public Page<PepResponseDto> findByFullName(PepRequestDto requestDto, Pageable pageable) {
+    return pepRepository.findByFullName(requestDto, pageable);
+  }
+
+  @Override
+  public Page<Pep> findAll(Pageable pageable) {
+    return pepRepository.findAll(pageable);
   }
 }
