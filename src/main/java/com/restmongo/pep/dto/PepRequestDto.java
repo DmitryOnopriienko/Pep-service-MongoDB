@@ -1,4 +1,4 @@
-package com.example.parsezippep.dto;
+package com.restmongo.pep.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

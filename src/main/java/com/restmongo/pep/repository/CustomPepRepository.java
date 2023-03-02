@@ -1,8 +1,8 @@
-package com.example.parsezippep.repository;
+package com.restmongo.pep.repository;
 
-import com.example.parsezippep.dto.NameStatisticsDto;
-import com.example.parsezippep.dto.PepRequestDto;
-import com.example.parsezippep.dto.PepResponseDto;
+import com.restmongo.pep.dto.NameStatisticsDto;
+import com.restmongo.pep.dto.PepRequestDto;
+import com.restmongo.pep.dto.PepResponseDto;
 import org.bson.Document;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,7 +1,7 @@
-package com.example.parsezippep.repository;
+package com.restmongo.pep.repository;
 
-import com.example.parsezippep.dto.PepResponseDto;
-import com.example.parsezippep.entity.Pep;
+import com.restmongo.pep.dto.PepResponseDto;
+import com.restmongo.pep.entity.Pep;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;

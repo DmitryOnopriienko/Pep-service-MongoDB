@@ -1,9 +1,9 @@
-package com.example.parsezippep.controller;
+package com.restmongo.pep.controller;
 
-import com.example.parsezippep.dto.NameStatisticsDto;
-import com.example.parsezippep.dto.PepRequestDto;
-import com.example.parsezippep.dto.PepResponseDto;
-import com.example.parsezippep.service.PepService;
+import com.restmongo.pep.dto.NameStatisticsDto;
+import com.restmongo.pep.dto.PepRequestDto;
+import com.restmongo.pep.dto.PepResponseDto;
+import com.restmongo.pep.service.PepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -38,7 +38,7 @@ public class Controller {
 
   @GetMapping("/all")
   public Page<PepResponseDto> findAll(@RequestParam(defaultValue = "0") int page,
-                           @RequestParam(defaultValue = "5") int size) {
+                                      @RequestParam(defaultValue = "5") int size) {
     Pageable pageable = PageRequest.of(page, size);
     return pepService.findAll(pageable);
   }

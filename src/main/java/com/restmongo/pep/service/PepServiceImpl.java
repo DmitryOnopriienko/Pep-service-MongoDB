@@ -1,9 +1,9 @@
-package com.example.parsezippep.service;
+package com.restmongo.pep.service;
 
-import com.example.parsezippep.dto.NameStatisticsDto;
-import com.example.parsezippep.dto.PepRequestDto;
-import com.example.parsezippep.dto.PepResponseDto;
-import com.example.parsezippep.repository.PepRepository;
+import com.restmongo.pep.dto.NameStatisticsDto;
+import com.restmongo.pep.dto.PepRequestDto;
+import com.restmongo.pep.dto.PepResponseDto;
+import com.restmongo.pep.repository.PepRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bson.Document;

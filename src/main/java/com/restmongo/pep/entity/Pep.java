@@ -1,8 +1,8 @@
-package com.example.parsezippep.entity;
+package com.restmongo.pep.entity;
 
-import com.example.parsezippep.dto.Declaration;
-import com.example.parsezippep.dto.RelatedCompany;
-import com.example.parsezippep.dto.Relative;
+import com.restmongo.pep.dto.Declaration;
+import com.restmongo.pep.dto.RelatedCompany;
+import com.restmongo.pep.dto.Relative;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
