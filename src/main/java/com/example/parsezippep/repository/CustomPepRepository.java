@@ -1,5 +1,6 @@
 package com.example.parsezippep.repository;
 
+import com.example.parsezippep.dto.NameStatisticsDto;
 import com.example.parsezippep.dto.PepRequestDto;
 import com.example.parsezippep.dto.PepResponseDto;
 import org.bson.Document;
@@ -13,4 +14,6 @@ public interface CustomPepRepository {
   void insert(List<Document> documents);
 
   Page<PepResponseDto> findByFullName(PepRequestDto requestDto, Pageable pageable);
+
+  List<NameStatisticsDto> getFirstNameStatistics();
 }

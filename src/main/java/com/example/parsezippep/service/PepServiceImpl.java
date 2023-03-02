@@ -1,8 +1,8 @@
 package com.example.parsezippep.service;
 
+import com.example.parsezippep.dto.NameStatisticsDto;
 import com.example.parsezippep.dto.PepRequestDto;
 import com.example.parsezippep.dto.PepResponseDto;
-import com.example.parsezippep.entity.Pep;
 import com.example.parsezippep.repository.PepRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -70,7 +70,12 @@ public class PepServiceImpl implements PepService {
   }
 
   @Override
-  public Page<Pep> findAll(Pageable pageable) {
-    return pepRepository.findAll(pageable);
+  public Page<PepResponseDto> findAll(Pageable pageable) {
+    return pepRepository.findAllBy(pageable);
+  }
+
+  @Override
+  public List<NameStatisticsDto> getFirstNameStatistics() {
+    return pepRepository.getFirstNameStatistics();
   }
 }
