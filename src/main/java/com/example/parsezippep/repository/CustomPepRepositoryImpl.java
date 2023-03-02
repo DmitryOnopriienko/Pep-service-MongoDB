@@ -45,34 +45,11 @@ public class CustomPepRepositoryImpl implements CustomPepRepository {
     query.addCriteria(Criteria.where("patronymic_en").regex(requestDto.getPatronymic(), "i"));
     query.addCriteria(Criteria.where("is_pep").is(true));
     query.with(pageable);
-//    List<Pep> pepEntityList = mongoTemplate.find(query, Pep.class, "person");
-//
-//    List<PepResponseDto> responseDtoList = pepEntityList.stream()
-//            .map(CustomPepRepositoryImpl::mapPepEntityToResponseDto)
-//            .toList();
 
     List<PepResponseDto> response = mongoTemplate.find(query, PepResponseDto.class, "person");
     long c = mongoTemplate.count(query, PepResponseDto.class);
     return new PageImpl<>(response, pageable, c);
-
-//    long count = mongoTemplate.count(query, Pep.class);
-//    return new PageImpl<>(responseDtoList, pageable, count);
   }
-
-//  private static PepResponseDto mapPepEntityToResponseDto(Pep pepEntity) {
-//    PepResponseDto responseDto = new PepResponseDto();
-//
-//    responseDto.setId(pepEntity.getId());
-//    responseDto.setFirstName(pepEntity.getFirstNameEn());
-//    responseDto.setLastName(pepEntity.getLastNameEn());
-//    responseDto.setPatronymic(pepEntity.getPatronymicEn());
-//    responseDto.setFullName(pepEntity.getFullName());
-//    responseDto.setDied(pepEntity.isDied());
-//    responseDto.setTypeOfOfficial(pepEntity.getTypeOfOfficialEn());
-//    responseDto.setRelatedCompanies(pepEntity.getRelatedCompanies());
-//
-//    return responseDto;
-//  }
 
   @Override
   public List<NameStatisticsDto> getFirstNameStatistics() {
